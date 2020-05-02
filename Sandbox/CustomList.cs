@@ -10,28 +10,111 @@ namespace Sandbox
     {
         // member variables (HAS A)
         private T[] items;
+        private int count;
+        private int capacity;
 
 
         // constructor (SPAWNER)
+
         public CustomList()
         {
-            items = new T[4];
-            
+            capacity = 4;
+            items = new T[capacity];
+            count = 0;
+            //need values for variables
         }
-        public CustomList(int length)
+        public T this[int index]
         {
-            items = new T[length];
+            get
+            {
+                if (index < count && index >= 0)
+                {
+                    return items[index];
 
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+
+                }
+            }
+            set
+            {
+                items[index] = value;
+            }
         }
-         
+        public int Count
+        {
+            get
+            {
+                return count;
 
-        // member methods (CAN DO)
+            }
+        }
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+        }
+
+        // member method ( can do )
+
         public void Add(T item)
         {
-            T[int index]; a
-;
-            if (index < 0 && index >= item.Length)
-                Console.Read IndexOuttOfRange;
+            //check count compared to capacity
+
+
+            if (count == capacity)
+
+            {
+                capacity = capacity * 2;
+                T[] tempArray = new T[capacity];
+                
+                for (int i = 0; i < count ; i++)
+                {
+                    tempArray[i] = items[i];
+
+                }
+                    items = tempArray;
+
+
+               // when my orginal array reaches index 4 my new array should be added 
+           
+                //how do we get the values out of the old array and into this new array
+
+            }
+              items[count] = item;
+              count++;
+
+           
+
+
         }
-    }
+        //{10, 20, 30}
+        //{20, 30}
+        public void Remove(T canBeAnything)
+        { 
+           
+            for (int i = 0; i <count ; i++)
+            {
+
+                if (items[i].Equals(canBeAnything))
+                {
+                    canBeAnything = items[i];
+                   
+                   
+                }
+
+           
+                
+
+
+            }
+            
+        }
+    }    
+
 }
+    
